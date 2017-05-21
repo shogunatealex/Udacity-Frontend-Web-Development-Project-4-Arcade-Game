@@ -5,11 +5,11 @@ Students should use this [rubric](https://review.udacity.com/#!/projects/2696458
 
 For detailed instructions on how to get started, check out this [guide](https://docs.google.com/document/d/1v01aScPjSWCCWQLIpFqvg3-vXLH2e8_SZQKC8jNO0Dc/pub?embedded=true).
 
-* How to run *
+# How to run 
 
 click on the index.html and run it with a broswer of your choice.
 
-* How to play * 
+# How to play 
 
 Your objective is to make it to the water at the end of the course. There are evil rikus trying to run you through with their sword.
 Here are the controls you can use:
