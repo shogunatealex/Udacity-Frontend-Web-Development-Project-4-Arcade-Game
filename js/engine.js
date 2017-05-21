@@ -78,9 +78,22 @@ var Engine = (function(global) {
      * functionality this way (you could just implement collision detection
      * on the entities themselves within your app.js file).
      */
+
+     function checkCollisions(){
+       allEnemies.forEach(function(enemy){
+         if(enemy.x + 70  > player.x && enemy.x + 70 < player.x + 70){
+              if(enemy.y == player.y){
+                player.currentSprite = player.deadSprites[0];
+                player.dead = 1;
+              }
+         }
+       })
+     }
+
+
     function update(dt) {
         updateEntities(dt);
-        // checkCollisions();
+        checkCollisions();
     }
 
     /* This is called by the update function and loops through all of the
@@ -91,10 +104,18 @@ var Engine = (function(global) {
      * render methods.
      */
     function updateEntities(dt) {
-        allEnemies.forEach(function(enemy) {
-            enemy.update(dt);
-        });
-        //player.update();
+        // if the player wins, stop the rikus, and display win message
+        if(player.win == 1){
+            ctx.font="30px Arial";
+            ctx.fillText("You Win!", 202, 50);
+        }
+        else{
+          allEnemies.forEach(function(enemy) {
+              enemy.update(dt);
+          });
+        }
+
+        player.update();
     }
 
     /* This function initially draws the "game level", it will then call
@@ -151,7 +172,7 @@ var Engine = (function(global) {
             enemy.render();
         });
 
-        //player.render();
+        player.render();
     }
 
     /* This function does nothing but it could have been a good place to
@@ -172,6 +193,11 @@ var Engine = (function(global) {
         'images/riku3.png',
         'images/riku4.png',
         'images/riku5.png',
+        'images/sora.png',
+        'images/soradead1.png',
+        'images/soradead2.png',
+        'images/soradead3.png',
+        'images/soradead4.png',
         'images/stone-block.png',
         'images/water-block.png',
         'images/grass-block.png',
